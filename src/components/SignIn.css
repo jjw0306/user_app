@@ -1,0 +1,22 @@
+.input {
+  margin-top: 12px;
+  /* border-bottom: 2px solid; */
+  font-size: 0.8rem;
+}
+.input > input {
+  padding: 12px 0;
+}
+.MuiButton-sizeLarge {
+  padding: 16px 22px;
+}
+.form {
+  margin: 12px 0;
+}
+.btns {
+  margin-top: 24px;
+}
+.join {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
