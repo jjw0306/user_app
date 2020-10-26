@@ -15,6 +15,29 @@ const theme = createMuiTheme({
       main: "#ffe500",
     },
   },
+  overrides: {
+    MuiMenu: {
+      paper: {
+        height: "200px",
+      },
+    },
+    MuiInput: {
+      underline: {
+        "&:before": {
+          borderBottom: "2px solid #ebebeb",
+        },
+      },
+      input: {
+        padding: "11px 0",
+        caretColor: "#ffe500",
+      },
+    },
+    MuiFormControlLabel: {
+      root: {
+        marginRight: "40px",
+      },
+    },
+  },
 });
 
 export default function Layout(props) {

@@ -1,11 +1,16 @@
+.paper {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 70px;
+}
 .input {
   margin-top: 12px;
   /* border-bottom: 2px solid; */
   font-size: 0.8rem;
 }
-.input > input {
+/* .input > input {
   padding: 12px 0;
-}
+} */
 .MuiButton-sizeLarge {
   padding: 16px 22px;
 }
@@ -19,4 +24,26 @@
   margin-top: 12px;
   display: flex;
   justify-content: space-between;
+}
+
+.logo {
+  margin-top: 30px;
+}
+.form_group {
+  margin-top: 40px;
+}
+.selectDate > div {
+  margin-right: 40px;
+  width: 60px;
+}
+.selectDate > div:first-child {
+  width: 80px;
+}
+.input_label {
+  margin-top: 40px;
+}
+.email_chk {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
 }

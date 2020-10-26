@@ -16,20 +16,10 @@ import Logo from "./Logo";
 import "./SignIn.css";
 import { Button } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    // minWidth:""
-  },
-}));
-
 export default function SignIn() {
-  const classes = useStyles();
   return (
     <Container maxWidth="xs">
-      <Paper className={classes.paper} variant="outlined" square>
+      <Paper className="paper" variant="outlined" square>
         <Typography component="h2" variant="h5">
           <Logo />
         </Typography>
@@ -56,12 +46,13 @@ export default function SignIn() {
             control={
               <Checkbox
                 color="primary"
-                icon={<CircleChecked />}
+                icon={<CircleChecked color="disabled" />}
                 checkedIcon={<CircleCheckedFilled />}
                 name="checkedH"
               />
             }
-            label="로그인 상태 유지"
+            // label="로그인 상태 유지"
+            label={<Typography variant="body2">로그인 상태 유지</Typography>}
           />
           <div className="btns">
             <Button
@@ -73,7 +64,7 @@ export default function SignIn() {
             >
               로그인
             </Button>
-            <div class="hr-sect">
+            <div className="hr-sect">
               <span>또는</span>
             </div>
             <Button variant="contained" size="large" disableElevation fullWidth>

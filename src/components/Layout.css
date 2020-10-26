@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  min-width: 500px;
   background-color: #ffffff;
   font-family: NotoSans-Regular, AppleSDGothicNeo-Regular, "맑은 고딕",
     Malgun Gothic, "돋움", dotum, sans-serif;
@@ -10,7 +11,7 @@
 
 .header {
   border-bottom: 1px solid #e5e5e5;
-  padding: 0 80px;
+  padding: 0 60px;
   margin-bottom: 60px;
 }
 
