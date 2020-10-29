@@ -8,7 +8,7 @@ import "./Footer.css";
 
 export default function Footer(props) {
   return (
-    <footer className={props.className}>
+    <footer className="footer">
       <Container maxWidth="sm" align="center">
         <Breadcrumbs separator="" variant="body2" className="nav">
           <Link

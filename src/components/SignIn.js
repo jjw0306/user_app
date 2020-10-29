@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -8,15 +11,39 @@ import Checkbox from "@material-ui/core/Checkbox";
 import CircleChecked from "@material-ui/icons/CheckCircleOutline";
 import CircleCheckedFilled from "@material-ui/icons/CheckCircle";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { makeStyles } from "@material-ui/core/styles";
-import Link from "@material-ui/core/Link";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 
 import Logo from "./Logo";
 import "./SignIn.css";
 import { Button } from "@material-ui/core";
 
-export default function SignIn() {
+export default function SignIn({ history }) {
+  const signIn = async () => {
+    document.getElementById(`error_login`).innerText = "";
+
+    const user = {};
+    user.email = document.getElementById("email").value;
+    user.password = document.getElementById("password").value;
+    console.log(user);
+
+    await axios
+      .post("/api/users/login", user)
+      .then((data) => {
+        console.log(data.data);
+        alert("로그인 되었습니다.");
+        sessionStorage.setItem("login", JSON.stringify(data.data));
+        console.log(sessionStorage.getItem("login"));
+        // router로 페이지 이동
+        history.replace("/");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        document.getElementById(`error_login`).innerText =
+          "이메일 혹은 비밀번호가 일치하지 않습니다. 입력한 내용을 다시 확인해 주세요.";
+        // error.response.data.defaultMessage;
+      });
+  };
+
   return (
     <Container maxWidth="xs">
       <Paper className="paper" variant="outlined" square>
@@ -54,6 +81,13 @@ export default function SignIn() {
             // label="로그인 상태 유지"
             label={<Typography variant="body2">로그인 상태 유지</Typography>}
           />
+          <Typography
+            component="p"
+            variant="caption"
+            color="error"
+            className="error_msg"
+            id="error_login"
+          ></Typography>
           <div className="btns">
             <Button
               variant="contained"
@@ -61,6 +95,7 @@ export default function SignIn() {
               size="large"
               disableElevation
               fullWidth
+              onClick={signIn}
             >
               로그인
             </Button>
@@ -79,22 +114,24 @@ export default function SignIn() {
           </div>
         </form>
         <div className="join">
-          <Typography variant="caption">
-            <Link color="inherit">회원가입</Link>
+          <Typography
+            variant="caption"
+            color="inherit"
+            component={Link}
+            to="/signup"
+          >
+            {/* <Link href="/signup">회원가입</Link> */}
+            회원가입
           </Typography>
           <Breadcrumbs separator="|" variant="caption">
-            <Link
-              color="inherit"
-              href="https://www.kakao.com/policy/terms?lang=ko"
-            >
+            {/* <Link color="inherit" href="#">
               카카오계정
             </Link>
-            <Link
-              color="inherit"
-              href="https://www.kakao.com/policy/privacy?lang=ko"
-            >
+            <Link color="inherit" href="#">
               비밀번호 찾기
-            </Link>
+            </Link> */}
+            <span>카카오계정</span>
+            <span>비밀번호 찾기</span>
           </Breadcrumbs>
         </div>
       </Paper>

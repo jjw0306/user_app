@@ -9,32 +9,13 @@
     Malgun Gothic, "돋움", dotum, sans-serif;
 }
 
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  padding: 0 60px;
-  margin-bottom: 60px;
-}
-
-.nav {
-  flex-grow: 1;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
-
-.footer {
-  border-top: 1px solid #e5e5e5;
-  padding: 20px 0 60px 0;
-  margin-top: 60px;
-}
-
 .hr-sect {
   display: flex;
   flex-basis: 100%;
   align-items: center;
   color: rgba(0, 0, 0, 0.3);
   font-size: 12px;
-  margin: 16px 0px;
+  margin: 14px 0px;
 }
 .hr-sect span {
   margin: 0 8px;
@@ -47,4 +28,8 @@
   height: 1px;
   font-size: 0px;
   line-height: 0px;
+}
+
+a {
+  text-decoration: none;
 }

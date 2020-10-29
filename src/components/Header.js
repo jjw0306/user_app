@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -11,15 +12,24 @@ import Tab from "@material-ui/core/Tab";
 import "./Header.css";
 import Logo from "./Logo";
 
-export default function Header(props) {
+export default function Header({ history }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const signOut = async () => {
+    await axios.get("/api/users/logout").then((data) => {
+      console.log(data);
+      sessionStorage.removeItem("login");
+      alert(data.data);
+      history.replace("/");
+    });
+  };
+
   return (
-    <header className={props.className}>
+    <header className="header">
       <Toolbar>
         <Typography component="h2" variant="h5">
           <Logo />
@@ -29,37 +39,37 @@ export default function Header(props) {
             value={value}
             onChange={handleChange}
             indicatorColor="primary"
-            textColor="primary"
+            // textColor="primary"
           >
-            <Tab label="메인" component={Link} to="/" value="/" />
-            <Tab label="목록" component={Link} to="/test1" value="/test1" />
+            <Tab label="메인" component={Link} to="/" />
+            <Tab label="목록" component={Link} to="/userlist" />
+            {sessionStorage.getItem("login") != null && (
+              <Tab label="정보수정" component={Link} to="/update" />
+            )}
           </Tabs>
         </nav>
-        {/* <Breadcrumbs separator="" className="nav">
-          <Link to="/" className="a">
-            Home
-          </Link>
-          <Link to="/" className="a">
-            List
-          </Link>
-        </Breadcrumbs> */}
-        {/* <Typography className="nav">
-        <Link to="/" className="a">
-          Home
-        </Link>
-        <Link to="/" className="a">
-          List
-        </Link>
-      </Typography> */}
         <ButtonGroup>
-          <Link to="/" className="a">
-            <Button variant="outlined" size="small">
+          {sessionStorage.getItem("login") == null ? (
+            <Button
+              variant="outlined"
+              size="small"
+              component={Link}
+              to="/signin"
+              onClick={() => setValue(-1)}
+            >
               Sign in
             </Button>
-          </Link>
-          {/* <Button variant="outlined" size="small">
-          Sign up
-        </Button> */}
+          ) : (
+            <Button
+              variant="outlined"
+              size="small"
+              component={Link}
+              to="/signin"
+              onClick={signOut}
+            >
+              Sign out
+            </Button>
+          )}
         </ButtonGroup>
       </Toolbar>
     </header>
