@@ -49,29 +49,29 @@ export default App;
 
 ## UI
 
-![Untitled1](readme/Untitled1.png)
-
 메인
 
-![Untitled2](readme/Untitled2.png)
+![Untitled1](readme/Untitled1.png)
 
 로그인
 
-![Untitled3](readme/Untitled3.png)
+![Untitled2](readme/Untitled2.png)
 
 회원가입
 
-![Untitled4](readme/Untitled4.png)
+![Untitled3](readme/Untitled3.png)
 
 로그인 시 메인
 
-![Untitled5](readme/Untitled5.png)
+![Untitled4](readme/Untitled4.png)
 
 로그인 시 회원목록(페이징 추가 예정)
 
-![Untitled6](readme/Untitled6.png)
+![Untitled5](readme/Untitled5.png)
 
 로그인 시 회원정보수정
+
+![Untitled6](readme/Untitled6.png)
 
 ## rest api 요청 함수
 
