@@ -44,28 +44,6 @@ const theme = createMuiTheme({
   },
 });
 
-// function Home() {
-//   return (
-//     <Layout>
-//       <SignIn />
-//     </Layout>
-//   );
-// }
-// function Test1() {
-//   return (
-//     <Layout>
-//       <SignUp />
-//     </Layout>
-//   );
-// }
-// function Test2() {
-//   return (
-//     <Layout>
-//       <UserList />
-//     </Layout>
-//   );
-// }
-
 function App() {
   return (
     <BrowserRouter>
