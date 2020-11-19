@@ -9,3 +9,39 @@ body {
     "Apple SD Gothic Neo", "돋움", dotum, sans-serif;
   height: 100%;
 }
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  min-width: 500px;
+  background-color: #ffffff;
+  font-family: NotoSans-Regular, AppleSDGothicNeo-Regular, "맑은 고딕",
+    Malgun Gothic, "돋움", dotum, sans-serif;
+}
+
+.hr-sect {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  margin: 14px 0px;
+}
+.hr-sect span {
+  margin: 0 8px;
+}
+.hr-sect::before,
+.hr-sect::after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.1);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+}
+
+a {
+  text-decoration: none;
+}
